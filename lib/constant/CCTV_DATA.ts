@@ -163,6 +163,20 @@ export const indonesiaData: Provinsi[] = [
     ],
   },
   {
+    id: 'Aceh',
+    name: 'Aceh',
+    kabupatens: [
+      {
+        id: 'Banda Aceh',
+        name: 'Banda Aceh',
+        cctvCount: 21,
+        onlineCount: 17,
+        alertCount: 0,
+        url: 'https://cctv.bandaacehkota.go.id/',
+      },
+    ],
+  },
+  {
     id: 'kalimantan',
     name: 'Kalimantan',
     kabupatens: [
