@@ -56,6 +56,14 @@ export const indonesiaData: Provinsi[] = [
         alertCount: 0,
         url: 'https://cctv.wonosobokab.go.id/',
       },
+      {
+        id: 'kebumen',
+        name: 'kebumen',
+        cctvCount: 5,
+        onlineCount: 5,
+        alertCount: 0,
+        url: 'https://cctv.kebumenkab.go.id/',
+      },
     ],
   },
   {
@@ -69,6 +77,20 @@ export const indonesiaData: Provinsi[] = [
         onlineCount: 154,
         alertCount: 0,
         url: 'https://cctvkanjeng.gresikkab.go.id/',
+      },
+    ],
+  },
+   {
+    id: 'jabar',
+    name: 'Jawa Barat',
+    kabupatens: [
+      {
+        id: 'bandung',
+        name: 'Bandung',
+        cctvCount: 388,
+        onlineCount: 127,
+        alertCount: 0,
+        url: 'https://pelindung.bandung.go.id/',
       },
     ],
   },
