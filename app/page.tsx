@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Bell, Camera, MapPin, Search, Settings, AlertTriangle, Wifi, WifiOff, ChevronRight, ArrowLeft, Users, Info } from 'lucide-react';
+import { Bell, Cctv, MapPin, Search, Settings, AlertTriangle, Wifi, WifiOff, ChevronRight, ArrowLeft, Users,  } from 'lucide-react';
 import Link from 'next/link';
 import { indonesiaData, Kabupaten, Provinsi } from '@/lib/constant/CCTV_DATA';
 
@@ -101,48 +101,29 @@ export default function CCTVMonitoringApp() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100/85">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b sticky top-0 z-10">
+      <div className="bg-slate-950 shadow-sm border-b sticky top-0 z-10">
         <div className="px-4 py-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               {currentView !== 'provinsi' && (
                 <Button variant="ghost" size="icon" onClick={handleBackClick}>
-                  <ArrowLeft className="w-5 h-5" />
+                  <ArrowLeft className="w-5 h-5 text-white" />
                 </Button>
               )}
               <div>
-                <h1 className="text-xl font-bold text-gray-900">{getTitle()}</h1>
-                <p className="text-sm text-gray-500">{getSubtitle()}</p>
+                <h1 className="text-xl font-bold text-white">{getTitle()}</h1>
+                <p className="text-sm text-gray-200">{getSubtitle()}</p>
               </div>
             </div>
-
-            {/* --- Tombol Info dengan Popup Dialog --- */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="ghost" size="icon" className="relative">
-                  <Info className="w-7 h-7" />
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle className="text-left">Informasi Sumber Data</DialogTitle>
-                  <DialogDescription className="text-left">Sumber data CCTV yang ditampilkan pada aplikasi ini berasal dari layanan CCTV publik yang tersedia untuk umum.</DialogDescription>
-                </DialogHeader>
-                <div className="py-1">
-                  <p className="text-sm text-gray-500 italic">Keakuratan dan ketersediaan streaming bergantung pada masing-masing penyedia layanan.</p>
-                </div>
-              </DialogContent>
-            </Dialog>
-            {/* --- End of Tombol Info --- */}
           </div>
 
           {/* Breadcrumb */}
           {currentView !== 'provinsi' && (
-            <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <div className="flex items-center gap-2 text-sm text-gray-200 mb-4">
               <span
-                className="cursor-pointer hover:text-gray-700"
+                className="cursor-pointer hover:text-gray-300"
                 onClick={() => {
                   setCurrentView('provinsi');
                   setSelectedProvinsi(null);
@@ -154,7 +135,7 @@ export default function CCTVMonitoringApp() {
               {selectedProvinsi && (
                 <>
                   <ChevronRight className="w-4 h-4" />
-                  <span className={`${currentView === 'lokasi' ? 'cursor-pointer hover:text-gray-700' : 'text-gray-700'}`} onClick={() => (currentView === 'lokasi' ? handleBackClick() : undefined)}>
+                  <span className={`${currentView === 'lokasi' ? 'cursor-pointer hover:text-gray-300' : 'text-gray-300'}`} onClick={() => (currentView === 'lokasi' ? handleBackClick() : undefined)}>
                     {selectedProvinsi.name}
                   </span>
                 </>
@@ -235,7 +216,7 @@ export default function CCTVMonitoringApp() {
                           <span>{p.onlineCount} Online</span>
                         </div>
                         <div className="flex items-center gap-1 text-sm text-gray-500">
-                          <Camera className="w-3 h-3" />
+                          <Cctv className="w-3 h-3" />
                           <span>{p.totalCCTV} CCTV</span>
                         </div>
                       </div>
@@ -274,7 +255,7 @@ export default function CCTVMonitoringApp() {
                           <span>{kabupaten.onlineCount} Online</span>
                         </div>
                         <div className="flex items-center gap-1 text-sm text-gray-500">
-                          <Camera className="w-3 h-3" />
+                          <Cctv className="w-3 h-3" />
                           <span>{kabupaten.cctvCount} CCTV</span>
                         </div>
                       </div>
@@ -287,7 +268,7 @@ export default function CCTVMonitoringApp() {
 
         {filteredData.length === 0 && (
           <div className="text-center py-8">
-            <Camera className="w-12 h-12 text-gray-300 mx-auto mb-3" />
+            <Cctv className="w-12 h-12 text-gray-300 mx-auto mb-3" />
             <p className="text-gray-500">Tidak ada data yang ditemukan</p>
           </div>
         )}
