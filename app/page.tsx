@@ -5,8 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Bell, Cctv, MapPin, Search, Settings, AlertTriangle, Wifi, WifiOff, ChevronRight, ArrowLeft, Users,  } from 'lucide-react';
+import {  Cctv, Search, AlertTriangle, Wifi, ChevronRight, ArrowLeft,  Building2,  } from 'lucide-react';
 import Link from 'next/link';
 import { indonesiaData, Kabupaten, Provinsi } from '@/lib/constant/CCTV_DATA';
 
@@ -94,17 +93,17 @@ export default function CCTVMonitoringApp() {
   };
 
   const getSubtitle = () => {
-    if (currentView === 'provinsi') return 'Pilih Provinsi';
+    if (currentView === 'provinsi') return '';
     if (currentView === 'kabupaten') return 'Pilih Kabupaten/Kota';
     if (currentView === 'lokasi') return 'Lokasi CCTV';
     return '';
   };
 
   return (
-    <div className="min-h-screen bg-gray-100/85">
+    <div className="min-h-screen bg-gray-200/70">
       {/* Header */}
-      <div className="bg-slate-950 shadow-sm border-b sticky top-0 z-10">
-        <div className="px-4 py-4">
+      <div className="bg-black shadow-sm border-b sticky top-0 z-10">
+        <div className="px-4 py-4 pb-7">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               {currentView !== 'provinsi' && (
@@ -151,19 +150,19 @@ export default function CCTVMonitoringApp() {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-3 gap-3 mb-4">
-            <Card className="p-3">
+            <Card className="p-3 bg-[#1b1b1b] border-[#313131]">
               <div className="text-center">
-                <div className="text-lg font-bold text-green-600">{stats.online}</div>
+                <div className="text-lg text-green-600 ">{stats.online}</div>
                 <div className="text-xs text-gray-500">Online</div>
               </div>
             </Card>
-            <Card className="p-3">
+            <Card className="p-3 bg-[#1b1b1b] border-[#313131]">
               <div className="text-center">
-                <div className="text-lg font-bold text-gray-900">{stats.total}</div>
+                <div className="text-lg font-bold text-white">{stats.total}</div>
                 <div className="text-xs text-gray-500">Total CCTV</div>
               </div>
             </Card>
-            <Card className="p-3">
+            <Card className="p-3 bg-[#1b1b1b] border-[#313131]">
               <div className="text-center">
                 <div className="text-lg font-bold text-red-600">{stats.alerts}</div>
                 <div className="text-xs text-gray-500">Alert</div>
@@ -173,15 +172,20 @@ export default function CCTVMonitoringApp() {
 
           {/* Search Bar */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-            <Input placeholder={`Cari ${currentView === 'provinsi' ? 'provinsi' : currentView === 'kabupaten' ? 'kabupaten/kota' : 'lokasi'}...`} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10" />
+            <Search className="absolute left-3 top-1/2  transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <Input
+              placeholder={`Cari ${currentView === 'provinsi' ? 'provinsi' : currentView === 'kabupaten' ? 'kabupaten/kota' : 'lokasi'}...`}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 bg-[#1b1b1b] border-[#313131] text-white py-3"
+            />
           </div>
         </div>
       </div>
 
       {/* Content */}
       <div className="px-4 py-4">
-        <div className="space-y-3">
+        <div className="space-y-4">
           {/* Provinsi View */}
           {currentView === 'provinsi' &&
             filteredData.map((provinsi) => {
@@ -196,7 +200,7 @@ export default function CCTVMonitoringApp() {
                           <ChevronRight className="w-4 h-4 text-gray-400" />
                         </div>
                         <div className="flex items-center gap-1 text-sm text-gray-500 mb-2">
-                          <Users className="w-3 h-3" />
+                          <Building2 className="w-3 h-3" />
                           <span>{p.kabupatenCount} Kabupaten/Kota</span>
                         </div>
                       </div>
@@ -211,8 +215,8 @@ export default function CCTVMonitoringApp() {
                   <CardContent className="pt-0">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1 text-sm text-green-600">
-                          <Wifi className="w-3 h-3" />
+                        <div className="flex items-center gap-1 text-sm text-green-600 font-bold">
+                          <Wifi size={19} className="w-3 h-3" />
                           <span>{p.onlineCount} Online</span>
                         </div>
                         <div className="flex items-center gap-1 text-sm text-gray-500">
@@ -250,8 +254,8 @@ export default function CCTVMonitoringApp() {
                   <CardContent className="pt-0">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1 text-sm text-green-600">
-                          <Wifi className="w-3 h-3" />
+                        <div className="flex items-center gap-1 text-sm text-green-600 font-bold">
+                          <Wifi size={19} className="w-3 h-3" />
                           <span>{kabupaten.onlineCount} Online</span>
                         </div>
                         <div className="flex items-center gap-1 text-sm text-gray-500">
