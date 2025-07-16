@@ -179,7 +179,7 @@ export default function CCTVMonitoringApp() {
             </Card> */}
           </div>
         </div>
-        <div className="h-6 rounded-t-[60px]  bg-gray-100  " />
+        <div className="h-4 rounded-t-[60px]  bg-gray-100  " />
       </div>
 
       {/* Content */}
@@ -263,6 +263,7 @@ export default function CCTVMonitoringApp() {
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
+                          <Building2 className="w-3 h-3" />
                           <h3 className="font-semibold text-gray-900">{kabupaten.name}</h3>
                           <ChevronRight className="w-4 h-4 text-gray-400" />
                         </div>
