@@ -149,7 +149,7 @@ export default function CCTVMonitoringApp() {
           )}
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 gap-3">
             <Card className="p-3 bg-[#1b1b1bc5] border-[#393939]">
               <div className="flex items-center justify-center w-10 h-10 bg-green-500/20 rounded-full mx-auto mb-2">
                 <Wifi className="w-5 h-5 text-green-400" />
@@ -168,7 +168,7 @@ export default function CCTVMonitoringApp() {
                 <div className="text-xs text-gray-400">Total CCTV</div>
               </div>
             </Card>
-            <Card className="p-3 bg-[#1b1b1bc5] border-[#393939]">
+            {/* <Card className="p-3 bg-[#1b1b1bc5] border-[#393939]">
               <div className="flex items-center justify-center w-10 h-10 bg-red-500/20 rounded-full mx-auto mb-2">
                 <AlertTriangle className="w-5 h-5 text-red-400" />
               </div>
@@ -176,14 +176,14 @@ export default function CCTVMonitoringApp() {
                 <div className="text-xl font-bold text-red-600">{stats.alerts}</div>
                 <div className="text-xs text-gray-400">Alert</div>
               </div>
-            </Card>
+            </Card> */}
           </div>
         </div>
-        <div className="h-5 rounded-t-[20px]  bg-gray-100  "  />
+        <div className="h-6 rounded-t-[60px]  bg-gray-100  " />
       </div>
 
       {/* Content */}
-      <div className="px-4 pt-4 pb-8  bg-gray-100">
+      <div className="px-4 pt-1 pb-8  bg-gray-100">
         <div className="space-y-4 pb-5  min-h-[60vh]">
           {' '}
           {/* Search Bar */}
@@ -225,11 +225,11 @@ export default function CCTVMonitoringApp() {
                   <CardContent className="pt-0">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1 text-sm text-green-500  font-bold">
+                        <div className="flex items-center gap-1 text-xs text-green-500  font-bold">
                           <Wifi size={19} className="w-3 h-3" />
                           <span>{p.onlineCount} Online</span>
                         </div>
-                        <div className="flex items-center gap-1 text-sm text-gray-500">
+                        <div className="flex items-center gap-1 text-xs text-blue-500 font-bold">
                           <Cctv className="w-3 h-3" />
                           <span>{p.totalCCTV} CCTV</span>
                         </div>
@@ -278,13 +278,13 @@ export default function CCTVMonitoringApp() {
                   <CardContent className="pt-0">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1 text-sm text-green-500 font-bold font-bold">
+                        <div className="flex items-center gap-1 text-xs text-green-500  font-bold">
                           <Wifi size={19} className="w-3 h-3" />
                           <span>{kabupaten.onlineCount} Online</span>
                         </div>
-                        <div className="flex items-center gap-1 text-sm text-gray-500">
+                        <div className="flex items-center gap-1 text-xs text-blue-500 font-bold">
                           <Cctv className="w-3 h-3" />
-                          <span>{kabupaten.cctvCount} CCTV</span>
+                          <span>{kabupaten.totalCCTV} CCTV</span>
                         </div>
                       </div>
                     </div>
