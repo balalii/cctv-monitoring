@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import {  Cctv, Search, AlertTriangle, Wifi, ChevronRight, ArrowLeft,  Building2,  } from 'lucide-react';
+import {  Cctv, Search, AlertTriangle, Wifi, ChevronRight, ArrowLeft,  Building2, Activity,  } from 'lucide-react';
 import Link from 'next/link';
 import { indonesiaData, Kabupaten, Provinsi } from '@/lib/constant/CCTV_DATA';
 
@@ -93,16 +93,16 @@ export default function CCTVMonitoringApp() {
   };
 
   const getSubtitle = () => {
-    if (currentView === 'provinsi') return '';
+    if (currentView === 'provinsi') return 'Pantau CCTV lalu lintas ATCS real-time';
     if (currentView === 'kabupaten') return 'Pilih Kabupaten/Kota';
     if (currentView === 'lokasi') return 'Lokasi CCTV';
     return '';
   };
 
   return (
-    <div className="min-h-screen bg-gray-200/70">
+    <div className="min-h-screen ">
       {/* Header */}
-      <div className="bg-black shadow-sm border-b sticky top-0 z-10">
+      <div className="bg-black  sticky top-0 z-10 ">
         <div className="px-4 py-4 pb-7">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export default function CCTVMonitoringApp() {
               )}
               <div>
                 <h1 className="text-xl font-bold text-white">{getTitle()}</h1>
-                <p className="text-sm text-gray-200">{getSubtitle()}</p>
+                <p className="text-sm text-gray-400">{getSubtitle()}</p>
               </div>
             </div>
           </div>
@@ -149,27 +149,43 @@ export default function CCTVMonitoringApp() {
           )}
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-3 gap-3 mb-4">
-            <Card className="p-3 bg-[#1b1b1b] border-[#313131]">
+          <div className="grid grid-cols-3 gap-3">
+            <Card className="p-3 bg-[#1b1b1bc5] border-[#393939]">
+              <div className="flex items-center justify-center w-10 h-10 bg-green-500/20 rounded-full mx-auto mb-2">
+                <Wifi className="w-5 h-5 text-green-400" />
+              </div>
               <div className="text-center">
-                <div className="text-lg text-green-500 font-bold ">{stats.online}</div>
-                <div className="text-xs text-gray-500">Online</div>
+                <div className="text-xl text-green-500 font-bold ">{stats.online}</div>
+                <div className="text-xs text-gray-400">Online</div>
               </div>
             </Card>
-            <Card className="p-3 bg-[#1b1b1b] border-[#313131]">
+            <Card className="p-3 bg-[#1b1b1bc5] border-[#393939]">
+              <div className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-full mx-auto mb-2">
+                <Cctv className="w-5 h-5 text-blue-400" />
+              </div>
               <div className="text-center">
-                <div className="text-lg font-bold text-white">{stats.total}</div>
-                <div className="text-xs text-gray-500">Total CCTV</div>
+                <div className="text-xl font-bold text-white">{stats.total}</div>
+                <div className="text-xs text-gray-400">Total CCTV</div>
               </div>
             </Card>
-            <Card className="p-3 bg-[#1b1b1b] border-[#313131]">
+            <Card className="p-3 bg-[#1b1b1bc5] border-[#393939]">
+              <div className="flex items-center justify-center w-10 h-10 bg-red-500/20 rounded-full mx-auto mb-2">
+                <AlertTriangle className="w-5 h-5 text-red-400" />
+              </div>
               <div className="text-center">
-                <div className="text-lg font-bold text-red-600">{stats.alerts}</div>
-                <div className="text-xs text-gray-500">Alert</div>
+                <div className="text-xl font-bold text-red-600">{stats.alerts}</div>
+                <div className="text-xs text-gray-400">Alert</div>
               </div>
             </Card>
           </div>
+        </div>
+        <div className="h-5 rounded-t-[20px]  bg-gray-100  "  />
+      </div>
 
+      {/* Content */}
+      <div className="px-4 pt-4 pb-8  bg-gray-100">
+        <div className="space-y-4 pb-5  min-h-[60vh]">
+          {' '}
           {/* Search Bar */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2  transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -177,15 +193,9 @@ export default function CCTVMonitoringApp() {
               placeholder={`Cari ${currentView === 'provinsi' ? 'provinsi' : currentView === 'kabupaten' ? 'kabupaten/kota' : 'lokasi'}...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-[#1b1b1b] border-[#313131] text-white py-3"
+              className="pl-10 py-5 border-gray-300 shadow"
             />
           </div>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="px-4 py-4">
-        <div className="space-y-4">
           {/* Provinsi View */}
           {currentView === 'provinsi' &&
             filteredData.map((provinsi) => {
@@ -215,7 +225,7 @@ export default function CCTVMonitoringApp() {
                   <CardContent className="pt-0">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1 text-sm text-green-500 font-bold font-bold">
+                        <div className="flex items-center gap-1 text-sm text-green-500  font-bold">
                           <Wifi size={19} className="w-3 h-3" />
                           <span>{p.onlineCount} Online</span>
                         </div>
@@ -225,11 +235,25 @@ export default function CCTVMonitoringApp() {
                         </div>
                       </div>
                     </div>
+                    {/* Progress Bar */}
+                    <div className="mt-3">
+                      <div className="flex justify-between text-xs text-slate-500 mb-1">
+                        <span>Ketersediaan CCTV</span>
+                        <span>{p.totalCCTV && p.totalCCTV > 0 ? Math.round(((p.onlineCount ?? 0) / p.totalCCTV) * 100) : 0}%</span>
+                      </div>
+                      <div className="w-full bg-slate-200 rounded-full h-2">
+                        <div
+                          className={`h-2 rounded-full ${(p.onlineCount ?? 0) < (p.totalCCTV ?? 0) ? 'bg-green-500' : 'bg-orange-500'}`}
+                          style={{
+                            width: `${p.totalCCTV && p.totalCCTV > 0 ? ((p.onlineCount ?? 0) / p.totalCCTV) * 100 : 0}%`,
+                          }}
+                        ></div>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               );
             })}
-
           {/* Kabupaten View */}
           {currentView === 'kabupaten' &&
             filteredData.map((kabupaten: any) => (

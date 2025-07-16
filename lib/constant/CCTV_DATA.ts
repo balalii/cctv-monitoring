@@ -29,6 +29,34 @@ export interface Provinsi {
 
 export const indonesiaData: Provinsi[] = [
   {
+    id: 'Aceh',
+    name: 'Aceh',
+    kabupatens: [
+      {
+        id: 'Banda Aceh',
+        name: 'Banda Aceh',
+        cctvCount: 21,
+        onlineCount: 17,
+        alertCount: 0,
+        url: 'https://cctv.bandaacehkota.go.id/',
+      },
+    ],
+  },
+  {
+    id: 'jabar',
+    name: 'Jawa Barat',
+    kabupatens: [
+      {
+        id: 'bandung',
+        name: 'Bandung',
+        cctvCount: 388,
+        onlineCount: 127,
+        alertCount: 0,
+        url: 'https://pelindung.bandung.go.id/',
+      },
+    ],
+  },
+  {
     id: 'jateng',
     name: 'Jawa Tengah',
     kabupatens: [
@@ -66,25 +94,11 @@ export const indonesiaData: Provinsi[] = [
       },
       {
         id: 'magelang',
-        name: 'magelang',
+        name: 'Magelang',
         cctvCount: 27,
         onlineCount: 27,
         alertCount: 0,
         url: 'https://cctv.dishub.magelangkab.go.id/map-cctv',
-      },
-    ],
-  },
-  {
-    id: 'jogjakarta',
-    name: 'Yogyakarta',
-    kabupatens: [
-      {
-        id: 'jogja',
-        name: 'Yogya kota',
-        cctvCount: 162,
-        onlineCount: 145,
-        alertCount: 0,
-        url: 'https://cctv.jogjakota.go.id/',
       },
     ],
   },
@@ -127,16 +141,16 @@ export const indonesiaData: Provinsi[] = [
     ],
   },
   {
-    id: 'jabar',
-    name: 'Jawa Barat',
+    id: 'kalimantan',
+    name: 'Kalimantan',
     kabupatens: [
       {
-        id: 'bandung',
-        name: 'Bandung',
-        cctvCount: 388,
-        onlineCount: 127,
+        id: 'kotawaringin-barat',
+        name: 'Kotawaringin Barat',
+        cctvCount: 15,
+        onlineCount: 14,
         alertCount: 0,
-        url: 'https://pelindung.bandung.go.id/',
+        url: 'https://cctv.kotawaringinbaratkab.go.id/',
       },
     ],
   },
@@ -163,30 +177,16 @@ export const indonesiaData: Provinsi[] = [
     ],
   },
   {
-    id: 'Aceh',
-    name: 'Aceh',
+    id: 'jogjakarta',
+    name: 'Yogyakarta',
     kabupatens: [
       {
-        id: 'Banda Aceh',
-        name: 'Banda Aceh',
-        cctvCount: 21,
-        onlineCount: 17,
+        id: 'jogja',
+        name: 'Yogya kota',
+        cctvCount: 162,
+        onlineCount: 145,
         alertCount: 0,
-        url: 'https://cctv.bandaacehkota.go.id/',
-      },
-    ],
-  },
-  {
-    id: 'kalimantan',
-    name: 'Kalimantan',
-    kabupatens: [
-      {
-        id: 'kotawaringin-barat',
-        name: 'Kotawaringin Barat',
-        cctvCount: 15,
-        onlineCount: 14,
-        alertCount: 0,
-        url: 'https://cctv.kotawaringinbaratkab.go.id/',
+        url: 'https://cctv.jogjakota.go.id/',
       },
     ],
   },
