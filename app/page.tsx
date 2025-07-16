@@ -285,7 +285,7 @@ export default function CCTVMonitoringApp() {
                         </div>
                         <div className="flex items-center gap-1 text-xs text-blue-500 font-bold">
                           <Cctv className="w-3 h-3" />
-                          <span>{kabupaten.totalCCTV} CCTV</span>
+                          <span>{kabupaten.cctvCount} CCTV</span>
                         </div>
                       </div>
                     </div>
