@@ -362,7 +362,7 @@ export default function CCTVMonitoringApp() {
                       <motion.div initial={{ opacity: 0, scale: 0, rotate: -180 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 200 }}>
                         <ChevronRight className="w-4 h-4" />
                       </motion.div>
-                      <motion.span
+                      <motion.div
                         className={`${currentView === 'lokasi' ? 'cursor-pointer hover:text-gray-300 transition-all duration-300' : 'text-gray-300'}`}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -372,9 +372,11 @@ export default function CCTVMonitoringApp() {
                         variants={breadcrumbVariants as any}
                         custom={1}
                       >
-                                  <Building2 className="w-3 h-3 mr-2" />
-                        {selectedProvinsi.name}
-                      </motion.span>
+                        <div className="flex items-center">
+                          <Building2 className="w-3 h-3 mr-2" />
+                          <span>{selectedProvinsi.name}</span>{' '}
+                        </div>
+                      </motion.div>
                     </>
                   )}
                   {selectedKabupaten && (
@@ -383,7 +385,7 @@ export default function CCTVMonitoringApp() {
                         <ChevronRight className="w-4 h-4" />
                       </motion.div>
                       <motion.span className="text-gray-700" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.7, ease: [0.16, 1, 0.3, 1] }} variants={breadcrumbVariants as any} custom={2}>
-                         {selectedKabupaten.name}
+                        {selectedKabupaten.name}
                       </motion.span>
                     </>
                   )}
