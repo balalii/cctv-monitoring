@@ -86,18 +86,18 @@ interface Provinsi {
 2. **Install dependencies**
    \`\`\`bash
    npm install
-   **or**
+   # atau
    yarn install
-   **or**
+   # atau
    pnpm install
    \`\`\`
 
 3. **Jalankan development server**
    \`\`\`bash
    npm run dev
-   **or**
+   # atau
    yarn dev
-   **or**
+   # atau
    pnpm dev
    \`\`\`
 
