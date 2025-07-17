@@ -459,7 +459,7 @@ export default function CCTVMonitoringApp() {
                                 </motion.div>
                               </div>
                               <div className="flex items-center gap-1 text-sm text-gray-500 mb-2">
-                                <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}>
+                                <motion.div transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}>
                                   <Building2 className="w-3 h-3" />
                                 </motion.div>
                                 <span>{provinsi.kabupatenCount} Kabupaten/Kota</span>
@@ -529,7 +529,7 @@ export default function CCTVMonitoringApp() {
                           <div className="flex items-center justify-between">
                             <div className="flex-1">
                               <div className="flex items-center gap-2 mb-1">
-                                <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}>
+                                <motion.div transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}>
                                   <Building2 className="w-3 h-3" />
                                 </motion.div>
                                 <motion.h3 className="font-semibold text-gray-900 transition-colors duration-300" whileHover={{ color: '#3b82f6' }}>
