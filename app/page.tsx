@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -158,13 +158,8 @@ export default function CCTVMonitoringApp() {
   const [selectedProvinsi, setSelectedProvinsi] = useState<Provinsi | null>(null);
   const [selectedKabupaten, setSelectedKabupaten] = useState<Kabupaten | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   const [navigationDirection, setNavigationDirection] = useState(1);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const processedData = useMemo(() => {
     return indonesiaData.map((provinsi) => {
@@ -257,27 +252,6 @@ export default function CCTVMonitoringApp() {
     if (currentView === 'lokasi') return 'Lokasi CCTV';
     return '';
   };
-
-  if (!mounted) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <motion.div
-          className="relative"
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            duration: 1,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: 'linear',
-          }}
-        >
-          <div className="w-12 h-12 border-4 border-white/20 rounded-full" />
-          <div className="absolute top-0 left-0 w-12 h-12 border-4 border-white border-t-transparent rounded-full" />
-        </motion.div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-gray-100">
@@ -481,7 +455,7 @@ export default function CCTVMonitoringApp() {
                                 </motion.div>
                               </div>
                               <div className="flex items-center gap-1 text-sm text-gray-500 mb-2">
-                                <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}>
+                                <motion.div >
                                   <Building2 className="w-3 h-3" />
                                 </motion.div>
                                 <span>{provinsi.kabupatenCount} Kabupaten/Kota</span>
@@ -551,7 +525,7 @@ export default function CCTVMonitoringApp() {
                           <div className="flex items-center justify-between">
                             <div className="flex-1">
                               <div className="flex items-center gap-2 mb-1">
-                                <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}>
+                                <motion.div >
                                   <Building2 className="w-3 h-3" />
                                 </motion.div>
                                 <motion.h3 className="font-semibold text-gray-900 transition-colors duration-300" whileHover={{ color: '#3b82f6' }}>
