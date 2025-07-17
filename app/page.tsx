@@ -372,6 +372,7 @@ export default function CCTVMonitoringApp() {
                         variants={breadcrumbVariants as any}
                         custom={1}
                       >
+                                  <Building2 className="w-3 h-3 mr-2" />
                         {selectedProvinsi.name}
                       </motion.span>
                     </>
@@ -382,7 +383,7 @@ export default function CCTVMonitoringApp() {
                         <ChevronRight className="w-4 h-4" />
                       </motion.div>
                       <motion.span className="text-gray-700" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.7, ease: [0.16, 1, 0.3, 1] }} variants={breadcrumbVariants as any} custom={2}>
-                        {selectedKabupaten.name}
+                         {selectedKabupaten.name}
                       </motion.span>
                     </>
                   )}
@@ -392,13 +393,13 @@ export default function CCTVMonitoringApp() {
               {/* Stats Cards */}
               <motion.div className="grid grid-cols-2 gap-3" variants={{ visible: { transition: { staggerChildren: 0.15 } } }}>
                 <motion.div variants={statsVariants as any} initial="hidden" animate="visible" custom={0} whileHover={{ scale: 1.05, rotateY: 5, transition: { duration: 0.3 } }} whileTap={{ scale: 0.95 }}>
-                  <Card className="p-3 bg-[#1b1b1bc5] border-[#393939] backdrop-blur-sm transition-all duration-500 hover:bg-[#252525c5] hover:border-green-500/30">
+                  <Card className="p-3 py-4 bg-[#1b1b1bc5] border-[#393939] backdrop-blur-sm transition-all duration-500 hover:bg-[#252525c5] hover:border-green-500/30">
                     <motion.div
                       className="flex items-center justify-center w-10 h-10 bg-green-500/20 rounded-full mx-auto mb-2"
                       animate={{ boxShadow: ['0 0 0 0 rgba(34, 197, 94, 0.6)', '0 0 0 15px rgba(34, 197, 94, 0)', '0 0 0 0 rgba(34, 197, 94, 0.6)'] }}
                       transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}
                     >
-                      <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}>
+                      <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}>
                         <Wifi className="w-5 h-5 text-green-400" />
                       </motion.div>
                     </motion.div>
@@ -418,7 +419,7 @@ export default function CCTVMonitoringApp() {
                 </motion.div>
 
                 <motion.div variants={statsVariants as any} initial="hidden" animate="visible" custom={1} whileHover={{ scale: 1.05, rotateY: -5, transition: { duration: 0.3 } }} whileTap={{ scale: 0.95 }}>
-                  <Card className="p-3 bg-[#1b1b1bc5] border-[#393939] backdrop-blur-sm transition-all duration-500 hover:bg-[#252525c5] hover:border-blue-500/30">
+                  <Card className="p-3 py-4 bg-[#1b1b1bc5] border-[#393939] backdrop-blur-sm transition-all duration-500 hover:bg-[#252525c5] hover:border-blue-500/30">
                     <motion.div
                       className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-full mx-auto mb-2"
                       animate={{ boxShadow: ['0 0 0 0 rgba(59, 130, 246, 0.6)', '0 0 0 15px rgba(59, 130, 246, 0)', '0 0 0 0 rgba(59, 130, 246, 0.6)'] }}
@@ -451,7 +452,6 @@ export default function CCTVMonitoringApp() {
             >
               {/* Search Bar */}
               <motion.div className="relative" variants={searchVariants as any} initial="hidden" animate="visible">
-                {/* ✅ PERBAIKAN: Menambahkan z-10 agar icon muncul di atas input */}
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 z-10" />
                 <Input
                   placeholder={`Cari ${currentView === 'provinsi' ? 'provinsi' : currentView === 'kabupaten' ? 'kabupaten/kota' : 'lokasi'}...`}
